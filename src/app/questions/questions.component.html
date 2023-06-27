@@ -1,0 +1,14 @@
+<div class="container">
+  <div>
+    <div class="row col-md-12" style="display: flex;justify-content: center;">
+      <img [src]="'assets/'+ index +'.jpg'" style="width: 500px; height: 300px;">
+    </div>
+    <app-like  [checkList]="checkLike" (newItemEvent)="setLike($event)"></app-like>
+    <app-original [checkList]="checkOrg" (newItemEvent)="setOriginal($event)"></app-original>
+    <app-trustly [checkList]="checkListSafe" (newItemEvent)="setSafe($event)"></app-trustly>
+    <div class="col-md-12">
+      <button [disabled]="!like || !org || !safe" type="button" class="btn btn-primary"
+        style="width: 100px;float: right;margin-top: 50px;" (click)="next()">İleri</button>
+    </div>
+  </div>
+</div>

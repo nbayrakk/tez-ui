@@ -1,0 +1,39 @@
+<div style="border: 1px solid;
+margin: 10px;">
+  <div style="display: flex;justify-content: center;" class="col-md-12 row">
+    <label style="text-align: center;margin-right: 125px;" for="exampleInputEmail1" class="form-label mb-4">Mesleğinizi
+      Seçiniz</label>
+
+  </div>
+  <div style="display: flex;justify-content: center;" class="col-md-12 row">
+    <div *ngFor="let j of jobs" class="form-check col-md-2">
+      <input [checked]="j.isSelected" (change)="changedJob(j)" class="form-check-input" type="checkbox"
+        value="{{j.value}}" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        {{j.label}}
+      </label>
+    </div>
+  </div>
+</div>
+<div style="border: 1px solid;margin: 10px;">
+  <div style="display: flex;justify-content: center;" class="col-md-12 row">
+    <label style="text-align: center;margin-right: 125px;" for="exampleInputEmail1"
+      class="form-label mb-4">Cinsiyetinizi Seçiniz</label>
+  </div>
+
+  <div style="display: flex;justify-content: center;" class="col-md-12 row">
+    <div *ngFor="let g of genders" class="form-check col-md-2">
+      <input [checked]="g.isSelected" (change)="changedGender(g)" class="form-check-input" type="checkbox"
+        value="{{g.value}}" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        {{g.label}}
+      </label>
+    </div>
+  </div>
+</div>
+
+
+<div>
+  <button [disabled]="!job || !gender" type="button" class="btn btn-primary"
+    style="width: 100px;float: right;margin-top: 50px;" (click)="next()">İleri</button>
+</div>
